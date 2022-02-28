@@ -1,0 +1,90 @@
+bashrc_includes:
+  - "[ -f ~/.bash_profile ] && . ~/.bash_profile"
+
+homebrew:
+  - ansible
+  - awscli
+  - aws-iam-authenticator
+  - bash
+  - bash-completion@2
+  - certbot
+  - coreutils
+  - curl
+  - direnv
+  - gettext
+  - git
+  - graphviz
+  - helm
+  - helmfile
+  - httpie
+  - jq
+  - kubectl
+  - k9s
+  - nmap
+  - pipenv
+  - podman
+  - pyenv
+  - telnet
+  - iam-policy-json-to-terraform
+  - tfenv
+  - tgenv
+  - tree
+  - vim
+  - watch
+  - wget
+
+homebrew_cask:
+  - docker
+  - airbuddy
+  - authy
+  - dbeaver-community
+  - google-chrome
+  - iterm2
+  - keybase
+  - lens
+  - megasync
+  - multipass
+  - numi
+  - session-manager-plugin
+  - shift
+  - slack
+  - visual-studio-code
+  - xquartz
+  - zoom
+
+# vscode:
+#   extensions:
+#     - 4ops.terraform
+#     - AmazonWebServices.aws-toolkit-vscode
+#     - CoenraadS.bracket-pair-colorizer-2
+#     - d4nyll.devops-extension-pack
+#     - donjayamanne.git-extension-pack
+#     - donjayamanne.python-extension-pack
+#     - EditorConfig.EditorConfig
+#     - formulahendry.docker-explorer
+#     - GrapeCity.gc-excelviewer
+#     - Gruntfuggly.todo-tree
+#     - HashiCorp.terraform
+#     - marclipovsky.string-manipulation
+#     - ms-azuretools.vscode-docker
+#     - ms-vscode-remote.vscode-remote-extensionpack
+#     - PKief.material-icon-theme
+#     - quicktype.quicktype
+#     - Tyriar.sort-lines
+#     - vscode-icons-team.vscode-icons
+#     - tim-koehler.helm-intellisense
+#   settings: {
+#     "files.autoSave": "afterDelay",
+#     "editor.rulers": [
+#         80,
+#         100,
+#         120
+#     ],
+#     "editor.renderWhitespace": "all",
+#     "workbench.iconTheme": "vscode-icons",
+#     "projectManager.any.baseFolders": [
+#         "/Users/alex/projects/veea"
+#     ],
+#     "projectManager.any.maxDepthRecursion": 2,
+#     "files.insertFinalNewline": true
+#   }

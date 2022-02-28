@@ -1,0 +1,144 @@
+user_groups:
+  # - docker
+  - sudo
+  # - vboxsf
+  # - vboxusers
+
+bashrc_includes:
+  - "[ -f ~/.bash_local ] && . ~/.bash_local"
+
+packages:
+  - apt-file
+  - apt-transport-https
+  - aria2
+  - bash-completion
+  - build-essential
+  - byobu
+  - ca-certificates
+  # - code
+  # - containerd.io
+  - curl
+  - direnv
+  # - docker-ce
+  # - docker-ce-cli
+  # - exfat-fuse
+  # - exfat-utils
+  - flatpak
+  - gdebi
+  - git
+  - gnome-software-plugin-flatpak
+  - gnupg-agent
+  # - google-chrome-stable
+  - gparted
+  - helm
+  - htop
+  - httpie
+  - jq
+  - kubectl
+  - libbz2-dev
+  - libffi-dev
+  - liblzma-dev
+  - libncurses5-dev
+  - libncursesw5-dev
+  - libreadline-dev
+  - libsqlite3-dev
+  - libssl-dev
+  - llvm
+  - make
+  # - megasync
+  - nfs-common
+  - nfs-kernel-server
+  - nmap
+  - openssh-server
+  - p7zip-full
+  # - python-openssl
+  - podman
+  - python3-pip
+  - ruby
+  - software-properties-common
+  - telnet
+  # - terminator
+  - tk-dev
+  - traceroute
+  - vim
+  # - virtualbox-6.1
+  - wget
+  - xz-utils
+  - zip
+  - zlib1g-dev
+
+remote_packages: []
+
+remote_executables:
+   - name: aws-iam-authenticator
+     url: "https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator"
+   - name: terraform
+     url: "https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip"
+   - name: terragrunt
+     url: "https://github.com/gruntwork-io/terragrunt/releases/download/v0.33.0/terragrunt_linux_amd64"
+   - name: helmfile
+     url: "https://github.com/roboll/helmfile/releases/download/v0.140.1/helmfile_linux_amd64"
+
+snaps:
+  normal: []
+  classic: []
+
+flatpaks: []
+  # - com.slack.Slack
+  # - com.jetbrains.PyCharm-Community
+
+vscode:
+  extensions:
+    - 4ops.terraform
+    - AmazonWebServices.aws-toolkit-vscode
+    - CoenraadS.bracket-pair-colorizer-2
+    - d4nyll.devops-extension-pack
+    - donjayamanne.git-extension-pack
+    - donjayamanne.python-extension-pack
+    - EditorConfig.EditorConfig
+    - formulahendry.docker-explorer
+    - Gruntfuggly.todo-tree
+    - HashiCorp.terraform
+    - marclipovsky.string-manipulation
+    - ms-azuretools.vscode-docker
+    - ms-vscode-remote.vscode-remote-extensionpack
+    - PKief.material-icon-theme
+    - quicktype.quicktype
+    - scala-lang.scala
+    - Tyriar.sort-lines
+    - vscjava.vscode-java-pack
+    - vscode-icons-team.vscode-icons
+  settings: {
+    "[ansible]": {
+      "editor.detectIndentation": false,
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2
+    },
+    "editor.renderWhitespace": true,
+    "editor.rulers": [
+      80,
+      100,
+      120
+    ],
+    "files.associations": {
+      "**/ansible/**/hosts": "ini",
+      "**/ansible/**/inventory": "ini",
+      "**/defaults/**/*.yml": "jinja-yaml",
+      "**/group_vars/**/*": "jinja-yaml",
+      "**/handlers/*.yml": "ansible",
+      "**/host_vars/**/*": "jinja-yaml",
+      "**/meta/*.yml": "ansible",
+      "**/playbooks/**/*.yml": "ansible",
+      "**/roles/**/*.yml": "ansible",
+      "**/tasks/**/*.yml": "ansible",
+      "**/vars/**/*.yml": "jinja-yaml",
+      "Vagrantfile": "ruby",
+      "ansible.cfg": "ini"
+    },
+    "files.autoSave": "afterDelay",
+    "projectManager.any.baseFolders": [
+      "~/projects"
+    ],
+    "projectManager.any.maxDepthRecursion": 2,
+    "workbench.iconTheme": "vscode-icons"
+  }
