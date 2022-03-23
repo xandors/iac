@@ -13,6 +13,7 @@ homebrew:
   - direnv
   - gettext
   - git
+  - gpg
   - graphviz
   - helm
   - helmfile
@@ -24,14 +25,17 @@ homebrew:
   - pipenv
   - podman
   - pyenv
+  - readline
   - telnet
   - iam-policy-json-to-terraform
   - tfenv
   - tgenv
+  - tmux
   - tree
   - vim
   - watch
   - wget
+  - xz
 
 homebrew_cask:
   - docker
@@ -45,12 +49,16 @@ homebrew_cask:
   - megasync
   - multipass
   - numi
+  - parallels
   - session-manager-plugin
   - shift
   - slack
   - visual-studio-code
   - xquartz
   - zoom
+
+
+# https://raw.githubusercontent.com/zinic/tmux-cssh/master/tmux-cssh
 
 # vscode:
 #   extensions:

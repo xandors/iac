@@ -114,3 +114,14 @@ sudo yum install https://s3.amazonaws.com/session-manager-downloads/plugin/lates
 sudo -H pip3 install ansible
 ansible localhost -m ansible.builtin.setup
 ```
+
+## gpg
+```
+keyid="alexandre.souza@fareharbor.com"
+gpg --list-secret-keys
+gpg --export-secret-keys -a $keyid > my_private_key.asc
+gpg --export -a $keyid > my_public_key.asc
+gpg --decrypt-files file.tar.gz.gpg
+gpg --import my_private_key.asc
+gpg --import my_public_key.asc
+```
