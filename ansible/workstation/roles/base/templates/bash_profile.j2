@@ -10,11 +10,11 @@ alias grep='grep --color'
 
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
-# export LOCAL_BIN=/usr/local
-export LOCAL_BIN=/opt/homebrew
+export LOCAL_BIN=/usr/local
+# export LOCAL_BIN=/opt/homebrew
 
 # brew
-eval $(${LOCAL_BIN}/bin/brew shellenv)
+# eval $(${LOCAL_BIN}/bin/brew shellenv)
 
 # bash_completion
 [[ -r "${LOCAL_BIN}/etc/profile.d/bash_completion.sh" ]] && . "${LOCAL_BIN}/etc/profile.d/bash_completion.sh"

@@ -1,5 +1,5 @@
 user_groups:
-  # - docker
+  - docker
   - sudo
   # - vboxsf
   # - vboxusers
@@ -16,11 +16,11 @@ packages:
   - byobu
   - ca-certificates
   # - code
-  # - containerd.io
+  - containerd.io
   - curl
   - direnv
-  # - docker-ce
-  # - docker-ce-cli
+  - docker-ce
+  - docker-ce-cli
   # - exfat-fuse
   # - exfat-utils
   - flatpak
@@ -35,14 +35,14 @@ packages:
   - httpie
   - jq
   - kubectl
-  - libbz2-dev
-  - libffi-dev
-  - liblzma-dev
-  - libncurses5-dev
-  - libncursesw5-dev
-  - libreadline-dev
-  - libsqlite3-dev
-  - libssl-dev
+  #- libbz2-dev
+  #- libffi-dev
+  #- liblzma-dev
+  #- libncurses5-dev
+  #- libncursesw5-dev
+  #- libreadline-dev
+  #- libsqlite3-dev
+  #- libssl-dev
   - llvm
   - make
   # - megasync
@@ -52,32 +52,24 @@ packages:
   - openssh-server
   - p7zip-full
   # - python-openssl
-  - podman
+  #- podman
   - python3-pip
-  - ruby
+  #- ruby
   - software-properties-common
   - telnet
-  # - terminator
-  - tk-dev
+  - terminator
+  #- tk-dev
   - traceroute
   - vim
   # - virtualbox-6.1
   - wget
   - xz-utils
   - zip
-  - zlib1g-dev
+  #- zlib1g-dev
 
 remote_packages: []
 
-remote_executables:
-   - name: aws-iam-authenticator
-     url: "https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/amd64/aws-iam-authenticator"
-   - name: terraform
-     url: "https://releases.hashicorp.com/terraform/1.0.8/terraform_1.0.8_linux_amd64.zip"
-   - name: terragrunt
-     url: "https://github.com/gruntwork-io/terragrunt/releases/download/v0.33.0/terragrunt_linux_amd64"
-   - name: helmfile
-     url: "https://github.com/roboll/helmfile/releases/download/v0.140.1/helmfile_linux_amd64"
+remote_executables: []
 
 snaps:
   normal: []

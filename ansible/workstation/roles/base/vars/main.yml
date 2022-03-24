@@ -28,15 +28,11 @@ scripts:
 bashrc_includes:
   - "[ -f ~/.bash_profile ] && . ~/.bash_profile"
 
-git_repos: []
+git_repos:
   # Environment
-  # - name: .local/share/tfenv
-  #   repo: https://github.com/tfutils/tfenv.git
-  # - name: .local/share/tgenv
-  #   repo: https://github.com/cunymatthieu/tgenv.git
+  - name: .local/share/tfenv
+    repo: https://github.com/tfutils/tfenv.git
+  - name: .local/share/tgenv
+    repo: https://github.com/cunymatthieu/tgenv.git
 
 repos: []
-  # Veea adedge
-  # - name: projects/veea/adedge/adedge-resolver
-  #   repo: git@bitbucket.org:veea/adedge-resolver.git
-  #   version: master

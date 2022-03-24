@@ -97,12 +97,12 @@
     scope: global
     value: 'alexandre.souza@fareharbor.com'
 
-- name: Add email setting to local gitconfig
-  community.general.git_config:
-    name: user.email
-    repo: "{{ local_home }}/projects/iac"
-    scope: local
-    value: 'xandors@gmail.com'
+# - name: Add email setting to local gitconfig
+#   community.general.git_config:
+#     name: user.email
+#     repo: "{{ local_home }}/projects/iac"
+#     scope: local
+#     value: 'xandors@gmail.com'
 
 # git config --global --edit
 # git commit --amend --reset-author
