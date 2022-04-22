@@ -7,6 +7,8 @@ homebrew:
   - aws-iam-authenticator
   - bash
   - bash-completion@2
+  - bat
+  - bat-extras
   - certbot
   - coreutils
   - curl
@@ -57,7 +59,7 @@ homebrew_cask:
   - xquartz
   - zoom
 
-
+# https://github.com/zinic/tmux-cssh
 # https://raw.githubusercontent.com/zinic/tmux-cssh/master/tmux-cssh
 
 # vscode:

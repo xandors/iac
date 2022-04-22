@@ -1,5 +1,5 @@
-# docker buildx build -t docker-ide . --platform linux/amd64
-# docker run --rm -it --name provisioning -v $HOME/projects/provisioning:/workspace -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -w /workspace --platform linux/amd64 docker-ide /bin/bash
+# docker build -t docker-ide . --platform linux/amd64
+# docker run --rm -it --name provisioning -h provisioning -v $HOME/projects/provisioning:/workspace -v $HOME/.ssh:/root/.ssh -v $HOME/.aws:/root/.aws -w /workspace --platform linux/amd64 docker-ide /bin/bash
 # /workspace/vault/login.sh -r read-secrets
 FROM ubuntu:20.04
 
@@ -14,7 +14,7 @@ RUN apt-get update \
         # Base
         build-essential software-properties-common \
         # Essential
-        wget tar unzip git curl nano man htop bash-completion openssh-server socat gnupg2 \
+        wget tar unzip git curl nano man htop bash-completion net-tools openssh-server socat gnupg2 \
         # GUI
         libgtk2.0-0 libcanberra-gtk-module libxext6 libxrender1 libxtst6 libxslt1.1 dmz-cursor-theme \
         # for VsCode
