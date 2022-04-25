@@ -107,6 +107,8 @@ sudo install docker-compose /usr/local/bin/
 ```
 pip3 install ec2instanceconnectcli
 sudo yum install https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+sudo apt install ./session-manager-plugin.deb
 ```
 
 ## ansible
@@ -124,4 +126,9 @@ gpg --export -a $keyid > my_public_key.asc
 gpg --decrypt-files file.tar.gz.gpg
 gpg --import my_private_key.asc
 gpg --import my_public_key.asc
+```
+
+## python
+```
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2
 ```
