@@ -1,3 +1,8 @@
+Host 192.168.64.2
+  HostName 192.168.64.2
+  User ubuntu
+  ForwardAgent yes
+
 Host *
   HostName %h
   User alexandre_souza
@@ -15,4 +20,3 @@ host zandvoort-* demo-*
   IdentityFile ~/.ssh/id_rsa
   ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command-name.sh %h %r %p ~/.ssh/id_rsa.pub
   StrictHostKeyChecking no
-

@@ -141,12 +141,12 @@
 #     force: yes
 #     mode: 0644
 
-- name: Write Terminator Settings
-  template:
-    src: config.j2
-    dest: "~/.config/terminator/config"
-    force: yes
-    mode: 0644
+# - name: Write Terminator Settings
+#   template:
+#     src: config.j2
+#     dest: "~/.config/terminator/config"
+#     force: yes
+#     mode: 0644
 
 - name: Remove useless packages from the cache
   apt:

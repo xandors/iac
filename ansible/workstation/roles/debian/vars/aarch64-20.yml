@@ -4,17 +4,15 @@ repositories:
     - "deb https://download.docker.com/linux/ubuntu focal stable"
     - "deb https://apt.kubernetes.io/ kubernetes-xenial main"
     - "deb https://baltocdn.com/helm/stable/debian/ all main"
+    - "deb [arch=arm64] https://apt.releases.hashicorp.com focal main"
   key:
     - url: "https://download.docker.com/linux/ubuntu/gpg"
     - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
     - url: "https://baltocdn.com/helm/signing.asc"
+    - url: "https://apt.releases.hashicorp.com/gpg"
 
 remote_executables:
-  - name: packer
-    url: "https://releases.hashicorp.com/packer/1.8.0/packer_1.8.0_linux_arm64.zip"
-  - name: vault
-    url: "https://releases.hashicorp.com/vault/1.10.0/vault_1.10.0_linux_arm64.zip"
   - name: helmfile
-    url: "https://github.com/roboll/helmfile/releases/download/v0.143.1/helmfile_linux_arm64"
+    url: "https://github.com/roboll/helmfile/releases/download/v0.144.0/helmfile_linux_arm64"
   - name: aws-iam-authenticator
-    url: "https://amazon-eks.s3.us-west-2.amazonaws.com/1.21.2/2021-07-05/bin/linux/arm64/aws-iam-authenticator"
+    url: "https://s3.us-west-2.amazonaws.com/amazon-eks/1.21.2/2021-07-05/bin/linux/arm64/aws-iam-authenticator"

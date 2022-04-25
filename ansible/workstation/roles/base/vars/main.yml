@@ -28,11 +28,11 @@ scripts:
 bashrc_includes:
   - "[ -f ~/.bash_profile ] && . ~/.bash_profile"
 
-git_repos: []
-  # # Environment
-  # - name: .local/share/tfenv
-  #   repo: https://github.com/tfutils/tfenv.git
-  # - name: .local/share/tgenv
-  #   repo: https://github.com/cunymatthieu/tgenv.git
+git_repos:
+  # Environment
+  - name: .local/share/tfenv
+    repo: https://github.com/tfutils/tfenv.git
+  - name: .local/share/tgenv
+    repo: https://github.com/cunymatthieu/tgenv.git
 
 repos: []
