@@ -13,6 +13,7 @@ homebrew:
   - coreutils
   - curl
   - direnv
+  - firefox
   - gettext
   - git
   - gpg
@@ -53,7 +54,6 @@ homebrew_cask:
   - numi
   - parallels
   - session-manager-plugin
-  - shift
   - slack
   - visual-studio-code
   - xquartz
