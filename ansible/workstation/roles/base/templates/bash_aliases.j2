@@ -1,0 +1,8 @@
+alias run-debug='kubectl run -it --rm=true debug --image=ubuntu --restart=Never -- sh'
+
+alias read-secrets="$HOME/projects/fareharbor/provisioning/vault/login.sh -r read-secrets"
+alias read-secrets-production="$HOME/projects/fareharbor/provisioning/vault/login.sh -c production"
+alias read-secrets-airflow="$HOME/projects/fareharbor/provisioning/vault/login.sh -r airflow-read-secrets"
+
+alias fh="source ~/python-environments/fareharbor.com/bin/activate"
+alias prov="source ~/python-environments/provisioning/bin/activate"

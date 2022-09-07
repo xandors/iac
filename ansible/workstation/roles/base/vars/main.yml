@@ -1,0 +1,41 @@
+user_groups:
+  - docker
+  - sudo
+
+directories:
+  - ~/.aws
+  - ~/.ssh
+  - ~/.local/bin
+  - ~/.kube
+  - ~/projects
+
+files:
+  - ~/.bashrc
+  - ~/.bash_profile
+  - ~/.vimrc
+
+scripts:
+  root:
+    - bash_profile
+    - bash_aliases
+    - vimrc
+  specific:
+    - dir: .tfenv
+      file: use-gpgv
+    - dir: .ssh
+      file: config
+
+bashrc_includes:
+  - "[ -f ~/.bash_aliases ] && . ~/.bash_aliases"
+  - "[ -f ~/.bash_profile ] && . ~/.bash_profile"
+
+git_repos:
+  # Environment
+  # - name: .local/share/tfenv
+  #   repo: https://github.com/tfutils/tfenv.git
+  # - name: .local/share/tgenv
+  #   repo: https://github.com/cunymatthieu/tgenv.git
+  - name: projects/xandors/iac
+    repo: git@github.com:xandors/iac.git
+
+repos: []

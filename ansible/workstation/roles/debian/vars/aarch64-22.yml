@@ -1,0 +1,20 @@
+repositories:
+  ppa:
+    - "ppa:ansible/ansible"
+    - "ppa:greymd/tmux-xpanes"
+  url:
+    - "deb https://download.docker.com/linux/ubuntu jammy stable"
+    - "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    - "deb https://baltocdn.com/helm/stable/debian/ all main"
+    - "deb [arch=arm64] https://apt.releases.hashicorp.com jammy main"
+  key:
+    - url: "https://download.docker.com/linux/ubuntu/gpg"
+    - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    - url: "https://baltocdn.com/helm/signing.asc"
+    - url: "https://apt.releases.hashicorp.com/gpg"
+
+remote_executables:
+  - name: helmfile
+    url: "https://github.com/roboll/helmfile/releases/download/v0.144.0/helmfile_linux_arm64"
+  - name: aws-iam-authenticator
+    url: "https://s3.us-west-2.amazonaws.com/amazon-eks/1.21.2/2021-07-05/bin/linux/arm64/aws-iam-authenticator"

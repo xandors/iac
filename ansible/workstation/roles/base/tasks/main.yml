@@ -1,0 +1,128 @@
+---
+
+- name: Add user to sudo
+  lineinfile:
+    path: "/etc/sudoers.d/{{ user_name }}"
+    line: "{{ user_name }} ALL=(ALL) NOPASSWD: ALL"
+    state: present
+    mode: 0440
+    create: yes
+    validate: "visudo -cf %s"
+  become: true
+
+- name: Ensure groups exist
+  group:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ user_groups }}"
+  become: true
+
+- name: adding existing user '{{ user_name }}' to groups
+  user:
+    name: "{{ user_name }}"
+    groups: "{{ item }}"
+    append: yes
+  with_items: "{{ user_groups }}"
+  become: true
+
+- name: Ensure directory exists
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ user_name }}"
+    recurse: yes
+  with_items:
+    - "{{ directories }}"
+
+- name: Ensure file exists
+  file:
+    path: "{{ item }}"
+    state: touch
+  with_items:
+    - "{{ files }}"
+
+- name: Write root scripts
+  template:
+    src: "{{ item }}.j2"
+    dest: "~/.{{ item }}"
+    force: yes
+    mode: 0755
+  with_items: "{{ scripts.root }}"
+
+- name: Ensure scripts directories exist
+  file:
+    path: "~/{{ item.dir }}"
+    state: directory
+    owner: "{{ user_name }}"
+    recurse: yes
+  with_items:
+    - "{{ scripts.specific }}"
+
+- name: Write specific scripts
+  template:
+    src: "{{ item.file }}.j2"
+    dest: "~/{{ item.dir }}/{{ item.file }}"
+    force: yes
+    mode: 0755
+  with_items: "{{ scripts.specific }}"
+
+- name: Inserting itens in .bashrc
+  lineinfile:
+    path: ~/.bashrc
+    line: "{{ item }}"
+  with_items: "{{ bashrc_includes }}"
+
+- name: Install git
+  apt:
+    name: git
+    state: present
+  become: true
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Add editor setting to ~/.gitconfig
+  community.general.git_config:
+    name: core.editor
+    scope: global
+    value: vim
+
+- name: Add name setting to ~/.gitconfig
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: 'Alex Souza'
+
+- name: Add email setting to ~/.gitconfig
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: 'alexandre.souza@fareharbor.com'
+
+# - name: Add email setting to local gitconfig
+#   community.general.git_config:
+#     name: user.email
+#     repo: "{{ local_home }}/projects/iac"
+#     scope: local
+#     value: 'xandors@gmail.com'
+
+# git config --global --edit
+# git commit --amend --reset-author
+
+- name: Checkout git repos
+  git:
+    repo: "{{ item.repo }}"
+    dest: "~/{{ item.name }}"
+    update: no
+  with_items: "{{ git_repos }}"
+  ignore_errors: yes
+
+- name: Checkout repos
+  git:
+    repo: "{{ item.repo }}"
+    dest: "~/{{ item.name }}"
+    version: "{{ item.version }}"
+    update: yes
+  with_items: "{{ repos }}"
+  ignore_errors: yes
+
+- debug:
+    msg: "{{ ansible_distribution }}"

@@ -1,0 +1,19 @@
+repositories:
+  ppa: []
+  url:
+    - "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main"
+    - "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib"
+    - "deb https://mega.nz/linux/MEGAsync/xUbuntu_18.04/ ./"
+    - "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    - "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+    - "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    - "deb https://baltocdn.com/helm/stable/debian/ all main"
+  key:
+    - url: "https://dl.google.com/linux/linux_signing_key.pub"
+    - url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+    - url: "https://www.virtualbox.org/download/oracle_vbox.asc"
+    - url: "https://mega.nz/linux/MEGAsync/xUbuntu_18.04/Release.key"
+    - url: "https://download.docker.com/linux/ubuntu/gpg"
+    - url: "https://packages.microsoft.com/keys/microsoft.asc"
+    - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    - url: "https://baltocdn.com/helm/signing.asc"

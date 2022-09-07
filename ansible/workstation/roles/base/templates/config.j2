@@ -1,0 +1,20 @@
+Host *
+  HostName %h
+  User alexandre_souza
+  StrictHostKeyChecking no
+  ForwardAgent yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 120
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ForwardAgent yes
+
+Host i-* mi-*
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command-id.sh %h %r %p ~/.ssh/id_rsa.pub
+  StrictHostKeyChecking no
+
+Host zandvoort-* demo-*
+  IdentityFile ~/.ssh/id_rsa
+  ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command-name.sh %h %r %p ~/.ssh/id_rsa.pub
+  StrictHostKeyChecking no

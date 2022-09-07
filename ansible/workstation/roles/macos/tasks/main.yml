@@ -1,0 +1,43 @@
+---
+
+- name: Inserting bash 4 to /etc/shells
+  lineinfile:
+    path: /etc/shells
+    line: "/opt/homebrew/bin/bash"
+  become: true
+
+- name: Inserting bash 4 to /etc/shells
+  lineinfile:
+    path: /etc/shells
+    line: "/usr/local/bin/bash"
+  become: true
+
+# - name: Change default shell to bash 4
+#   shell: chsh -s /opt/homebrew/bin/bash
+
+# - name: Change default shell to bash 4
+#   shell: chsh -s /usr/local/bin/bash
+
+- name: Update homebrew
+  homebrew:
+    update_homebrew: yes
+    upgrade_all: yes
+
+- name: Install brew packages
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew }}"
+  ignore_errors: yes
+
+- name: Install brew cask packages
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ homebrew_cask }}"
+  ignore_errors: yes
+
+# - name: Install VSCode Extensions
+#   command: "code --install-extension {{ item }} --force"
+#   loop: "{{ vscode.extensions }}"
+#   ignore_errors: yes

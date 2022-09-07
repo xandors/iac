@@ -1,0 +1,141 @@
+user_groups:
+  - docker
+  - sudo
+
+bashrc_includes:
+  - "[ -f ~/.bash_profile ] && . ~/.bash_profile"
+
+packages:
+  - apt-file
+  - apt-transport-https
+  - aria2
+  - bash-completion
+  - bat
+  - build-essential
+  - byobu
+  - ca-certificates
+  - certbot
+  - containerd.io
+  - curl
+  - direnv
+  - docker-ce
+  - docker-ce-cli
+  - flatpak
+  - gdebi
+  - git
+  - gnome-software-plugin-flatpak
+  - gnupg2
+  - gnupg-agent
+  - golang
+  - gparted
+  - graphviz
+  - helm
+  - htop
+  - httpie
+  - jq
+  - kubectl
+  - libaugeas0
+  - llvm
+  - make
+  - nfs-common
+  - nfs-kernel-server
+  - nmap
+  - npm
+  - openssh-server
+  - p7zip-full
+  - packer
+  - podman
+  - python3
+  - python3-certbot-apache
+  - python3-certbot-nginx
+  - python3-venv
+  - python3-pip
+  - software-properties-common
+  - telnet
+  - tmux
+  - tmux-xpanes
+  - traceroute
+  - vault
+  - vim
+  - wget
+  - xz-utils
+  - zip
+
+remote_packages: []
+
+remote_executables: []
+
+snaps:
+  normal: []
+  classic: []
+
+flatpaks: []
+  # - com.slack.Slack
+  # - com.jetbrains.PyCharm-Community
+
+pip:
+  - awscliv2
+  - docker-compose
+  - podman-compose
+
+git_repos:
+  - name: .local/share/tfenv
+    repo: https://github.com/tfutils/tfenv.git
+  - name: .local/share/tgenv
+    repo: https://github.com/cunymatthieu/tgenv.git
+
+vscode:
+  extensions:
+    - 4ops.terraform
+    - AmazonWebServices.aws-toolkit-vscode
+    - CoenraadS.bracket-pair-colorizer-2
+    - d4nyll.devops-extension-pack
+    - donjayamanne.git-extension-pack
+    - donjayamanne.python-extension-pack
+    - EditorConfig.EditorConfig
+    - formulahendry.docker-explorer
+    - Gruntfuggly.todo-tree
+    - HashiCorp.terraform
+    - marclipovsky.string-manipulation
+    - ms-azuretools.vscode-docker
+    - ms-vscode-remote.vscode-remote-extensionpack
+    - PKief.material-icon-theme
+    - quicktype.quicktype
+    - scala-lang.scala
+    - Tyriar.sort-lines
+    - vscjava.vscode-java-pack
+    - vscode-icons-team.vscode-icons
+  settings: {
+    "[ansible]": {
+      "editor.detectIndentation": false,
+      "editor.insertSpaces": true,
+      "editor.tabSize": 2
+    },
+    "editor.renderWhitespace": true,
+    "editor.rulers": [
+      80,
+      100,
+      120
+    ],
+    "files.associations": {
+      "**/ansible/**/hosts": "ini",
+      "**/ansible/**/inventory": "ini",
+      "**/defaults/**/*.yml": "jinja-yaml",
+      "**/group_vars/**/*": "jinja-yaml",
+      "**/handlers/*.yml": "ansible",
+      "**/host_vars/**/*": "jinja-yaml",
+      "**/meta/*.yml": "ansible",
+      "**/playbooks/**/*.yml": "ansible",
+      "**/roles/**/*.yml": "ansible",
+      "**/tasks/**/*.yml": "ansible",
+      "**/vars/**/*.yml": "jinja-yaml",
+      "Vagrantfile": "ruby",
+      "ansible.cfg": "ini"
+    },
+    "files.autoSave": "afterDelay",
+    "projectManager.any.baseFolders": [
+      "~/projects"
+    ],
+    "projectManager.any.maxDepthRecursion": 2,
+    "workbench.iconTheme": "vscode-icons"
+  }

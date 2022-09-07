@@ -1,0 +1,172 @@
+---
+
+- name: Include vars
+  include_vars:
+    file: "{{ architecture }}-{{ distribution_major_version }}.yml"
+
+- name: Update all packages to the latest version
+  apt:
+    update_cache: yes
+    upgrade: yes
+  become: true
+
+- name: Inserting itens in .bashrc
+  lineinfile:
+    path: ~/.bashrc
+    line: "{{ item }}"
+  with_items: "{{ bashrc_includes }}"
+
+- name: Ensure groups exist
+  group:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ user_groups }}"
+  become: true
+
+- name: adding existing user '{{ user_name }}' to groups
+  user:
+    name: "{{ user_name }}"
+    groups: "{{ item }}"
+    append: yes
+  with_items: "{{ user_groups }}"
+  become: true
+
+- name: Add keys w/ url and id
+  apt_key:
+    url: "{{ item.url }}"
+    id: "{{ item.id }}"
+    state: present
+  with_items: "{{ repositories.key }}"
+  become: true
+  when: item.url is defined and item.id is defined
+
+- name: Add keys w/ url and no id
+  apt_key:
+    url: "{{ item.url }}"
+    state: present
+  with_items: "{{ repositories.key }}"
+  become: true
+  when: item.url is defined and item.id is undefined
+
+- name: Add keys w/ keyserver and id
+  apt_key:
+    keyserver: "{{ item.keyserver }}"
+    id: "{{ item.id }}"
+    state: present
+  with_items: "{{ repositories.key }}"
+  become: true
+  when: item.keyserver is defined and item.id is defined
+
+- name: Add PPAs
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items: "{{ repositories.ppa }}"
+  become: true
+
+- name: Add additional repos
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  with_items: "{{ repositories.url }}"
+  become: true
+
+- name: Install packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: true
+
+- name: Install remote packages
+  apt:
+    deb: "{{ item }}"
+  with_items: "{{ remote_packages }}"
+  become: true
+
+- include_tasks: tarexe.yml
+  with_items: "{{ remote_executables }}"
+  when: item.url.endswith("tar.gz") or item.url.endswith("tgz")
+
+- name: Install remote zip executable
+  unarchive:
+    src: "{{ item.url }}"
+    dest: "{{ bin_path }}"
+    remote_src: yes
+  with_items: "{{ remote_executables }}"
+  when: item.url.endswith("zip")
+
+- name: Install remote executable
+  get_url:
+    url: "{{ item.url }}"
+    dest: "~/.local/bin/{{ item.name }}"
+    owner: "{{ user_name }}"
+    mode: 0755
+  with_items: "{{ remote_executables }}"
+  when: not item.url.endswith("tar.gz") and not item.url.endswith("tgz") and not item.url.endswith("zip")
+
+- name: Install snaps
+  snap:
+    name: "{{ snaps.normal }}"
+    state: present
+  become: true
+
+- name: Install snaps with option --classic
+  snap:
+    name: "{{ snaps.classic }}"
+    classic: true
+    state: present
+  become: true
+
+- name: Add the flathub flatpak remote to the system installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+  become: true
+
+- name: Install flatpaks
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ flatpaks }}"
+
+- name: Install pip python package
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ pip }}"
+
+- name: Checkout git repos
+  git:
+    repo: "{{ item.repo }}"
+    dest: "~/{{ item.name }}"
+    update: no
+  with_items: "{{ git_repos }}"
+  ignore_errors: yes
+
+# - name: Install VSCode Extensions
+#   command: "code --install-extension {{ item }} --force"
+#   with_items: "{{ vscode.extensions }}"
+
+# - name: Write VSCode Settings
+#   template:
+#     src: settings.json.j2
+#     dest: "~/.config/Code/User/settings.json"
+#     force: yes
+#     mode: 0644
+
+# - name: Write Terminator Settings
+#   template:
+#     src: config.j2
+#     dest: "~/.config/terminator/config"
+#     force: yes
+#     mode: 0644
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: true
+  become: true
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: true
+  become: true

@@ -1,0 +1,110 @@
+homebrew:
+  - ansible
+  - awscli
+  - aws-iam-authenticator
+  - bash
+  - bash-completion@2
+  - bat
+  - bat-extras
+  - certbot
+  - coreutils
+  - curl
+  - direnv
+  - docker-slim
+  - gettext
+  - git
+  - go
+  - gnupg
+  - graphviz
+  - helm
+  - helmfile
+  - httpie
+  - jq
+  - kubectl
+  - k9s
+  - nmap
+  - nvm
+  - openssl
+  - packer
+  - pipenv
+  - podman
+  - podman-compose
+  - poetry
+  - pyenv
+  - pyenv-virtualenv
+  - python
+  - readline
+  - telnet
+  - iam-policy-json-to-terraform
+  - tfenv
+  - tgenv
+  - tmux
+  - tmux-xpanes
+  - tree
+  - vault
+  - vim
+  - watch
+  - wget
+  - xz
+
+homebrew_cask:
+  - airbuddy
+  - authy
+  - dbeaver-community
+  - dropbox
+  - firefox
+  - google-chrome
+  - iterm2
+  - keeper-password-manager
+  - keybase
+  - lens
+  - multipass
+  - numi
+  - parallels
+  - podman-desktop
+  - session-manager-plugin
+  - slack
+  - tunnelblick
+  - visual-studio-code
+  - xquartz
+  - zoom
+
+# https://github.com/zinic/tmux-cssh
+# https://raw.githubusercontent.com/zinic/tmux-cssh/master/tmux-cssh
+
+# vscode:
+#   extensions:
+#     - 4ops.terraform
+#     - AmazonWebServices.aws-toolkit-vscode
+#     - CoenraadS.bracket-pair-colorizer-2
+#     - d4nyll.devops-extension-pack
+#     - donjayamanne.git-extension-pack
+#     - donjayamanne.python-extension-pack
+#     - EditorConfig.EditorConfig
+#     - formulahendry.docker-explorer
+#     - GrapeCity.gc-excelviewer
+#     - Gruntfuggly.todo-tree
+#     - HashiCorp.terraform
+#     - marclipovsky.string-manipulation
+#     - ms-azuretools.vscode-docker
+#     - ms-vscode-remote.vscode-remote-extensionpack
+#     - PKief.material-icon-theme
+#     - quicktype.quicktype
+#     - Tyriar.sort-lines
+#     - vscode-icons-team.vscode-icons
+#     - tim-koehler.helm-intellisense
+#   settings: {
+#     "files.autoSave": "afterDelay",
+#     "editor.rulers": [
+#         80,
+#         100,
+#         120
+#     ],
+#     "editor.renderWhitespace": "all",
+#     "workbench.iconTheme": "vscode-icons",
+#     "projectManager.any.baseFolders": [
+#         "/Users/alex/projects/veea"
+#     ],
+#     "projectManager.any.maxDepthRecursion": 2,
+#     "files.insertFinalNewline": true
+#   }

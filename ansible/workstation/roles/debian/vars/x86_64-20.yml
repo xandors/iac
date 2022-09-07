@@ -1,0 +1,21 @@
+repositories:
+  ppa: []
+  url:
+    # - "deb http://dl.google.com/linux/chrome/deb/ stable main"
+    # - "deb https://download.virtualbox.org/virtualbox/debian focal contrib"
+    # - "deb https://mega.nz/linux/MEGAsync/xUbuntu_20.04/ ./"
+    # - "deb https://download.docker.com/linux/ubuntu focal stable"
+    # - "deb https://packages.microsoft.com/repos/vscode stable main"
+    - "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    - "deb https://baltocdn.com/helm/stable/debian/ all main"
+    - "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/ /"
+  key:
+    # - url: "https://dl.google.com/linux/linux_signing_key.pub"
+    # - url: "https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+    # - url: "https://www.virtualbox.org/download/oracle_vbox.asc"
+    # - url: "https://mega.nz/linux/MEGAsync/xUbuntu_20.04/Release.key"
+    # - url: "https://download.docker.com/linux/ubuntu/gpg"
+    # - url: "https://packages.microsoft.com/keys/microsoft.asc"
+    - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    - url: "https://baltocdn.com/helm/signing.asc"
+    - url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_20.04/Release.key"
