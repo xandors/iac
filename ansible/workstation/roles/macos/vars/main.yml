@@ -19,6 +19,7 @@ homebrew:
   - helm
   - helmfile
   - httpie
+  - intellij-idea
   - jq
   - kubectl
   - k9s
