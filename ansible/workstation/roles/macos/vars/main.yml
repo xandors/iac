@@ -1,7 +1,7 @@
 homebrew:
   - ansible
-  - awscli
   - aws-iam-authenticator
+  - awscli
   - bash
   - bash-completion@2
   - bat
@@ -13,16 +13,17 @@ homebrew:
   - docker-slim
   - gettext
   - git
-  - go
   - gnupg
+  - go
   - graphviz
   - helm
   - helmfile
   - httpie
+  - iam-policy-json-to-terraform
   - intellij-idea
   - jq
-  - kubectl
   - k9s
+  - kubectl
   - nmap
   - nvm
   - openssl
@@ -36,7 +37,6 @@ homebrew:
   - python
   - readline
   - telnet
-  - iam-policy-json-to-terraform
   - tfenv
   - tgenv
   - tmux
@@ -54,7 +54,6 @@ homebrew_cask:
   - dbeaver-community
   - dropbox
   - firefox
-  - google-chrome
   - iterm2
   - keeper-password-manager
   - keybase
@@ -67,6 +66,7 @@ homebrew_cask:
   - slack
   - tunnelblick
   - visual-studio-code
+  - vivaldi
   - xquartz
   - zoom
 

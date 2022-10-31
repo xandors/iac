@@ -20,12 +20,13 @@ packages:
   - direnv
   - docker-ce
   - docker-ce-cli
+  - docker-compose-plugin
   - flatpak
   - gdebi
   - git
   - gnome-software-plugin-flatpak
-  - gnupg2
   - gnupg-agent
+  - gnupg2
   - golang
   - gparted
   - graphviz
@@ -44,17 +45,17 @@ packages:
   - openssh-server
   - p7zip-full
   - packer
-  - podman
   - python3
   - python3-certbot-apache
   - python3-certbot-nginx
-  - python3-venv
   - python3-pip
+  - python3-venv
   - software-properties-common
   - telnet
   - tmux
   - tmux-xpanes
   - traceroute
+  - unzip
   - vault
   - vim
   - wget
@@ -74,9 +75,7 @@ flatpaks: []
   # - com.jetbrains.PyCharm-Community
 
 pip:
-  - awscliv2
-  - docker-compose
-  - podman-compose
+  - pipenv
 
 git_repos:
   - name: .local/share/tfenv

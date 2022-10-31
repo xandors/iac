@@ -1,3 +1,16 @@
+Host fareharbor
+  HostName 192.168.64.6
+  User alex
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_rsa
+  StrictHostKeyChecking no
+  ForwardAgent yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 120
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ForwardAgent yes
+
 Host *
   HostName %h
   User alexandre_souza

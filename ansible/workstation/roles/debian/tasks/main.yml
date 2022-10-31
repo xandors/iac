@@ -130,6 +130,10 @@
     state: present
   with_items: "{{ flatpaks }}"
 
+- name: Run a command
+  shell: "{{ item }}"
+  with_items: "{{ shell }}"
+
 - name: Install pip python package
   pip:
     name: "{{ item }}"

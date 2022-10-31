@@ -7,7 +7,7 @@ directories:
   - ~/.ssh
   - ~/.local/bin
   - ~/.kube
-  - ~/projects
+  # - ~/projects
 
 files:
   - ~/.bashrc

@@ -6,29 +6,6 @@ echo "/opt/homebrew/bin/bash" | sudo tee -a /etc/shells
 sudo chsh -s /opt/homebrew/bin/bash
 ```
 
-## direnv
-```
-curl -sfL https://direnv.net/install.sh | bash
-```
-
-## aws cli
-```
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-```
-
-## pyenv
-```
-curl https://pyenv.run | bash
-```
-
-## pipenv
-```
-pip3 install pipenv
-```
-
 ## sdkman
 ```
 curl -s https://get.sdkman.io | bash
@@ -136,9 +113,6 @@ Machine "podman-machine-default" started successfully
 sudo amazon-linux-extras install docker
 sudo systemctl start docker
 sudo usermod -a -G docker ${USER}
-
-sudo curl -L -o docker-compose "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)"
-sudo install docker-compose /usr/local/bin/
 ```
 
 ## aws connect
@@ -173,7 +147,23 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2
 
 ## multipass
 ```
-multipass launch -c 2 -d 50G -m 4G --mount $HOME:Home -n primary 22.04
+multipass launch 22.04 -c 2 -d 50G -m 4G --mount $HOME:Home -n primary
+
+multipass launch 20.04 -c 2 -d 50G -m 8G --mount $HOME:Home -n fareharbor --cloud-init - <<EOF
+users:
+  - default
+  - name: alex
+    gecos: Alexandre Souza
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    groups: users, admin
+    shell: /bin/bash
+    ssh_import_id: None
+    lock_passwd: true
+    ssh_authorized_keys:
+      - $(cat ~/.ssh/id_rsa.pub)
+package_update: true
+package_upgrade: true
+EOF
 ```
 
 ## nvm
@@ -202,4 +192,9 @@ sudo lsblk
 df -hT
 sudo xfs_growfs -d /
 df -hT
+```
+
+## ES Kibana Proxy
+```
+npm install -g aws-es-kibana
 ```

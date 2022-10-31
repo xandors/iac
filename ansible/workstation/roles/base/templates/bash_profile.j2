@@ -8,13 +8,20 @@ export CLICOLOR=1
 alias ll='ls -lhA'
 alias grep='grep --color'
 
+. "$HOME/.bash_aliases"
+
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
+{% if ansible_system == "Darwin" %}
+export LOCAL_BIN=/opt/homebrew
+{% else %}
 export LOCAL_BIN=/usr/local
-# export LOCAL_BIN=/opt/homebrew
+{% endif %}
 
+{% if ansible_system == "Darwin" %}
 # brew
-# eval $(${LOCAL_BIN}/bin/brew shellenv)
+eval $(${LOCAL_BIN}/bin/brew shellenv)
+{% endif %}
 
 # bash_completion
 [[ -r "/etc/profile.d/bash_completion.sh" ]] && . "/etc/profile.d/bash_completion.sh"
@@ -40,11 +47,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
+{% if ansible_system == "Linux" %}
 # tgenv
 export PATH="$HOME/.local/share/tgenv/bin:$PATH"
 
 # tfenv
 export PATH="$HOME/.local/share/tfenv/bin:$PATH"
+{% endif %}
 
 # direnv
 eval "$(direnv hook bash)"
