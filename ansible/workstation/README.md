@@ -149,7 +149,7 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2
 ```
 multipass launch 22.04 -c 2 -d 50G -m 4G --mount $HOME:Home -n primary
 
-multipass launch 20.04 -c 2 -d 50G -m 8G --mount $HOME:Home -n fareharbor --cloud-init - <<EOF
+multipass launch 20.04 -c 2 -d 50G -m 8G --mount $HOME:/media/home -n fareharbor --cloud-init - <<EOF
 users:
   - default
   - name: alex

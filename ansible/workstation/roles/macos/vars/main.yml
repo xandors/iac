@@ -28,8 +28,6 @@ homebrew:
   - openssl
   - packer
   - pipenv
-  - podman
-  - podman-compose
   - poetry
   - pyenv
   - pyenv-virtualenv
@@ -53,6 +51,7 @@ homebrew_cask:
   - dbeaver-community
   - dropbox
   - firefox
+  - google-chrome
   - intellij-idea
   - iterm2
   - keeper-password-manager
@@ -62,12 +61,10 @@ homebrew_cask:
   - multipass
   - numi
   - parallels
-  - podman-desktop
   - session-manager-plugin
   - slack
   - tunnelblick
   - visual-studio-code
-  - vivaldi
   - xquartz
   - zoom
 
