@@ -20,5 +20,5 @@ remote_executables:
     url: "https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.5.9/aws-iam-authenticator_0.5.9_linux_arm64"
 
 shell:
-  - curl https://pyenv.run | bash
-  - curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && sudo ./aws/install && rm -rf aws*
+  - curl https://pyenv.run | bash | true
+  - curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "/tmp/awscliv2.zip" && unzip -u /tmp/awscliv2.zip && sudo ./aws/install --update

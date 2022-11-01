@@ -20,7 +20,6 @@ homebrew:
   - helmfile
   - httpie
   - iam-policy-json-to-terraform
-  - intellij-idea
   - jq
   - k9s
   - kubectl
@@ -54,10 +53,12 @@ homebrew_cask:
   - dbeaver-community
   - dropbox
   - firefox
+  - intellij-idea
   - iterm2
   - keeper-password-manager
   - keybase
   - lens
+  - microsoft-remote-desktop
   - multipass
   - numi
   - parallels
