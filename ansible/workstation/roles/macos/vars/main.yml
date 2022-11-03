@@ -33,6 +33,7 @@ homebrew:
   - pyenv-virtualenv
   - python
   - readline
+  - stats
   - telnet
   - tfenv
   - tgenv
