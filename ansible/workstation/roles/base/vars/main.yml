@@ -7,6 +7,9 @@ directories:
   - ~/.ssh
   - ~/.local/bin
   - ~/.kube
+  - ~/.config/direnv
+  - ~/projects/xandors
+  - ~/projects/fareharbor
   # - ~/projects
 
 files:
@@ -24,6 +27,10 @@ scripts:
       file: use-gpgv
     - dir: .ssh
       file: config
+    - dir: .config/direnv
+      file: direnvrc
+    - dir: .projects/fareharbor
+      file: .python-version
 
 bashrc_includes:
   - "[ -f ~/.bash_aliases ] && . ~/.bash_aliases"

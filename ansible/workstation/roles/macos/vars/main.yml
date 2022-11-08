@@ -33,7 +33,6 @@ homebrew:
   - pyenv-virtualenv
   - python
   - readline
-  - stats
   - telnet
   - tfenv
   - tgenv
@@ -50,6 +49,7 @@ homebrew_cask:
   - airbuddy
   - authy
   - dbeaver-community
+  - docker
   - dropbox
   - firefox
   - google-chrome
@@ -63,6 +63,7 @@ homebrew_cask:
   - parallels
   - session-manager-plugin
   - slack
+  - stats
   - tunnelblick
   - visual-studio-code
   - xquartz
