@@ -55,6 +55,7 @@ homebrew_cask:
   - google-chrome
   - intellij-idea
   - iterm2
+  - keeper-password-manager
   - keybase
   - lens
   - microsoft-remote-desktop
