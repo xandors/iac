@@ -34,6 +34,7 @@ homebrew:
   - python
   - readline
   - telnet
+  - terraformer
   - tfenv
   - tgenv
   - tmux
@@ -52,7 +53,6 @@ homebrew_cask:
   - docker
   - dropbox
   - firefox
-  - google-chrome
   - intellij-idea
   - iterm2
   - keeper-password-manager
@@ -67,6 +67,7 @@ homebrew_cask:
   - stats
   - tunnelblick
   - visual-studio-code
+  - vivaldi
   - xquartz
   - zoom
 
