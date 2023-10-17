@@ -14,8 +14,6 @@ repositories:
     - url: "https://apt.releases.hashicorp.com/gpg"
 
 remote_executables:
-  - name: helmfile
-    url: "https://github.com/roboll/helmfile/releases/download/v0.144.0/helmfile_linux_arm64"
   - name: aws-iam-authenticator
     url: "https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.5.9/aws-iam-authenticator_0.5.9_linux_arm64"
 
