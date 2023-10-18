@@ -19,4 +19,5 @@ remote_executables:
 
 shell:
   - curl https://pyenv.run | bash | true
+  - curl https://raw.githubusercontent.com/terraform-linters/tflint/master/install_linux.sh | bash | true
   - curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "/tmp/awscliv2.zip" && unzip -u /tmp/awscliv2.zip && sudo ./aws/install --update && rm -rf ./aws
