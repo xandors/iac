@@ -3,20 +3,15 @@
 - name: Inserting bash 4 to /etc/shells
   lineinfile:
     path: /etc/shells
-    line: "/opt/homebrew/bin/bash"
+    line: "{{ '/opt/homebrew' if ansible_architecture == 'arm64' else '/usr/local' }}/bin/bash"
   become: true
 
-- name: Inserting bash 4 to /etc/shells
-  lineinfile:
-    path: /etc/shells
-    line: "/usr/local/bin/bash"
+- name: Change default shell to bash 4
+  shell: "chsh -s {{ '/opt/homebrew' if ansible_architecture == 'arm64' else '/usr/local' }}/bin/bash"
+
+- name: Change root default shell to bash 4
+  shell: "chsh -s {{ '/opt/homebrew' if ansible_architecture == 'arm64' else '/usr/local' }}/bin/bash"
   become: true
-
-# - name: Change default shell to bash 4
-#   shell: chsh -s /opt/homebrew/bin/bash
-
-# - name: Change default shell to bash 4
-#   shell: chsh -s /usr/local/bin/bash
 
 - name: Update homebrew
   homebrew:

@@ -12,7 +12,7 @@ alias grep='grep --color'
 
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
-{% if ansible_system == "Darwin" %}
+{% if ansible_system == "Darwin" and ansible_architecture == "arm64" %}
 export LOCAL_BIN=/opt/homebrew
 {% else %}
 export LOCAL_BIN=/usr/local

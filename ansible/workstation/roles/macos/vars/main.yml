@@ -48,23 +48,22 @@ homebrew:
   - xz
 
 homebrew_cask:
-  - airbuddy
   - authy
   - dbeaver-community
   - docker
-  - dropbox
-  - firefox
-  - google-chrome
   - iterm2
-  - keybase
-  - lens
   - microsoft-remote-desktop
   - multipass
   - numi
   - session-manager-plugin
-  - slack
   - stats
-  - tunnelblick
-  - visual-studio-code
+  - vnc-viewer
   - xquartz
-  - zoom
+  # - firefox
+  # - google-chrome
+  # - intellij-idea-ce
+  # - keybase
+  # - lens
+  # - slack
+  # - visual-studio-code
+  # - zoom

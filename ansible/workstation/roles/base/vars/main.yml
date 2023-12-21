@@ -9,8 +9,6 @@ directories:
   - ~/.kube
   - ~/.config/direnv
   - ~/projects/xandors
-  - ~/projects/fareharbor
-  # - ~/projects
 
 files:
   - ~/.bashrc
