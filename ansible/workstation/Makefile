@@ -4,4 +4,4 @@ install:
 	ansible-galaxy collection install community.general
 
 run:
-	ansible-playbook -i inventory ansible.yml
+	ansible-playbook -i inventory --ask-become-pass ansible.yml

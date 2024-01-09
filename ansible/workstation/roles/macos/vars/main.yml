@@ -6,6 +6,7 @@ homebrew:
   - bash-completion@2
   - bat
   - bat-extras
+  - byobu
   - certbot
   - coreutils
   - curl
@@ -51,19 +52,16 @@ homebrew_cask:
   - authy
   - dbeaver-community
   - docker
+  - firefox
+  - google-chrome
   - iterm2
+  - keybase
   - microsoft-remote-desktop
   - multipass
   - numi
   - session-manager-plugin
+  - slack
   - stats
-  - vnc-viewer
+  - visual-studio-code
   - xquartz
-  # - firefox
-  # - google-chrome
-  # - intellij-idea-ce
-  # - keybase
-  # - lens
-  # - slack
-  # - visual-studio-code
-  # - zoom
+  - zoom
