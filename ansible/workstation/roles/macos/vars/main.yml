@@ -1,7 +1,7 @@
 homebrew:
   - ansible
-  - aws-iam-authenticator
   - awscli
+  - aws-iam-authenticator
   - bash
   - bash-completion@2
   - bat
@@ -12,7 +12,6 @@ homebrew:
   - curl
   - direnv
   - docker-slim
-  - gettext
   - git
   - gnupg
   - go
@@ -23,6 +22,7 @@ homebrew:
   - iam-policy-json-to-terraform
   - jq
   - k9s
+  - kompose
   - kubectl
   - nmap
   - nvm
@@ -33,20 +33,15 @@ homebrew:
   - pyenv
   - pyenv-virtualenv
   - python
-  - readline
   - telnet
-  - terraform-ls
   - terraformer
   - tfenv
   - tgenv
-  - tmux
-  - tmux-xpanes
   - tree
   - vault
   - vim
   - watch
   - wget
-  - xz
 
 homebrew_cask:
   - authy
@@ -58,7 +53,6 @@ homebrew_cask:
   - keybase
   - microsoft-remote-desktop
   - multipass
-  - numi
   - session-manager-plugin
   - slack
   - stats

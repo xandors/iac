@@ -1,6 +1,6 @@
 Host *
   HostName %h
-  User alexandre_souza
+  User alex
   StrictHostKeyChecking no
   ForwardAgent yes
   ServerAliveInterval 30
@@ -10,9 +10,4 @@ Host *
 Host i-* mi-*
   IdentityFile ~/.ssh/id_rsa
   ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command-id.sh %h %r %p ~/.ssh/id_rsa.pub
-  StrictHostKeyChecking no
-
-Host zandvoort-* demo-*
-  IdentityFile ~/.ssh/id_rsa
-  ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command-name.sh %h %r %p ~/.ssh/id_rsa.pub
   StrictHostKeyChecking no

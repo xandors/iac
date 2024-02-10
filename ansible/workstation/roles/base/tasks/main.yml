@@ -95,7 +95,7 @@
   community.general.git_config:
     name: user.email
     scope: global
-    value: "{{ 'xandors@gmail.com' if ansible_architecture == 'arm64' else 'alexandre.souza@wildlifestudios.com' }}"
+    value: 'xandors@gmail.com'
 
 # - name: Add email setting to local gitconfig
 #   community.general.git_config:
