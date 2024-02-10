@@ -49,6 +49,7 @@ homebrew_cask:
   - docker
   - firefox
   - google-chrome
+  - google-cloud-sdk
   - iterm2
   - keybase
   - microsoft-remote-desktop
