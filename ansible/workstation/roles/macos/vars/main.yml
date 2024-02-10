@@ -53,6 +53,7 @@ homebrew_cask:
   - keybase
   - microsoft-remote-desktop
   - multipass
+  - nordpass
   - session-manager-plugin
   - slack
   - stats
