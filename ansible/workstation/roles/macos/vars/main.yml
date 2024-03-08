@@ -25,6 +25,7 @@ homebrew:
   - kompose
   - krew
   - kubectl
+  - lens
   - nmap
   - nvm
   - openssl

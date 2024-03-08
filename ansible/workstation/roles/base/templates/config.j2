@@ -1,3 +1,9 @@
+Host multipass
+  HostName 192.168.64.2
+  User ubuntu
+  IdentityFile ~/.ssh/id_ed25519
+  ForwardAgent yes
+
 Host *
   HostName %h
   User alex
@@ -5,7 +11,6 @@ Host *
   ForwardAgent yes
   ServerAliveInterval 30
   ServerAliveCountMax 120
-  ForwardAgent yes
 
 Host i-* mi-*
   IdentityFile ~/.ssh/id_rsa
