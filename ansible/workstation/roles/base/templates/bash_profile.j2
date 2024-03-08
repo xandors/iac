@@ -29,8 +29,7 @@ eval $(${LOCAL_BIN}/bin/brew shellenv)
 
 # ssh
 eval $(ssh-agent -s)
-ssh-add ~/.ssh/id_rsa
-ssh-add ~/.ssh/id_ed25519
+grep -slR "PRIVATE" ~/.ssh | xargs ssh-add
 
 # aws cli
 complete -C 'aws_completer' aws
@@ -72,6 +71,9 @@ eval "$(pyenv virtualenv-init -)"
 # sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source "$SDKMAN_DIR/bin/sdkman-init.sh"
+
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 # history size
 export HISTFILESIZE=1000000

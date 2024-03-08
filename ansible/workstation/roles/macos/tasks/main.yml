@@ -32,6 +32,21 @@
   loop: "{{ homebrew_cask }}"
   ignore_errors: yes
 
+- name: Ensure krew plugins directory exists
+  file:
+    path: "~/.krew"
+    state: directory
+    owner: "{{ user_name }}"
+    recurse: yes
+
+- name: update Krew plugin list
+  shell: "kubectl krew update"
+
+- name: Install Krew plugins
+  shell: "kubectl krew install {{ item }}"
+  with_items: "{{ krew_plugins }}"
+  when: krew_plugins is defined
+
 # - name: Install VSCode Extensions
 #   command: "code --install-extension {{ item }} --force"
 #   loop: "{{ vscode.extensions }}"

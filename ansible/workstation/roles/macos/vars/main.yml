@@ -23,6 +23,7 @@ homebrew:
   - jq
   - k9s
   - kompose
+  - krew
   - kubectl
   - nmap
   - nvm
@@ -47,17 +48,17 @@ homebrew_cask:
   - authy
   - dbeaver-community
   - docker
-  - firefox
   - google-chrome
-  - google-cloud-sdk
   - iterm2
-  - keybase
   - microsoft-remote-desktop
   - multipass
-  - nordpass
   - session-manager-plugin
   - slack
   - stats
   - visual-studio-code
   - xquartz
-  - zoom
+
+krew_plugins:
+  - ctx
+  - ns
+  - get-all
