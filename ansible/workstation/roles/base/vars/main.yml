@@ -13,12 +13,14 @@ directories:
 files:
   - ~/.bashrc
   - ~/.bash_profile
+  - ~/.bash_swile
   - ~/.vimrc
 
 scripts:
   root:
     - bash_profile
     - bash_aliases
+    - bash_swile
     - vimrc
   specific:
     - dir: .tfenv
@@ -31,6 +33,7 @@ scripts:
 bashrc_includes:
   - "[ -f ~/.bash_aliases ] && . ~/.bash_aliases"
   - "[ -f ~/.bash_profile ] && . ~/.bash_profile"
+  - "[ -f ~/.bash_swile ]   && . ~/.bash_swile"
 
 git_repos:
   # Environment

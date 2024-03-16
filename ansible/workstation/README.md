@@ -198,3 +198,8 @@ df -hT
 ```
 npm install -g aws-es-kibana
 ```
+
+## sshuttle
+```
+sshuttle --sudoers-no-modify > sshuttle_auto; sudo mv sshuttle_auto /etc/sudoers.d/sshuttle_auto; sudo chown root /etc/sudoers.d/sshuttle_auto
+```

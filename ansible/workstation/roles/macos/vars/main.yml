@@ -35,6 +35,7 @@ homebrew:
   - pyenv
   - pyenv-virtualenv
   - python
+  - sshuttle
   - telnet
   - terraformer
   - tfenv
@@ -51,6 +52,7 @@ homebrew_cask:
   - docker
   - google-chrome
   - iterm2
+  - microsoft-outlook
   - microsoft-remote-desktop
   - multipass
   - session-manager-plugin

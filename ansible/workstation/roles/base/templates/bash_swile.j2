@@ -1,0 +1,40 @@
+# Start an ssh base IP tunnel to a target CIDR
+# ssm-tunnel <cidr> <aws-profile?> <aws-region?> <tier?>
+function ssm-tunnel() {
+  local targetCidr="${1}"
+  awsArgs=(--profile ${2:-central-network} --region ${3:-eu-west-3} --output json)
+  local tier=${4:-Human}
+
+  # Instance selection
+  local bastionInstances=$(aws autoscaling describe-auto-scaling-groups ${awsArgs[@]} --filters Name=tag:Role,Values=bastion Name=tag:Tier,Values=${tier} | grep -v 'AWS token' | jq -r '.AutoScalingGroups[] | .Instances[] | select(.LifecycleState == "InService" and .HealthStatus == "Healthy") | .InstanceId')
+  if [[ -z "${bastionInstances}" ]]; then
+    echo "No Bastion instances available"
+    return 2
+  fi
+  # Round robin bastion selection
+  selectedBastionInstance="$(echo "${bastionInstances}" | shuf | head -n 1)"
+  echo "Selected bastion : '${selectedBastionInstance}'"
+	reason="${RANDOM}"
+  
+  function cleanup() {
+    ssmSessionId=$(aws ssm describe-sessions ${awsArgs[@]} --state Active --filters key=Target,value=${selectedBastionInstance} key=Status,value=Connected | \
+			grep -v 'AWS token' | \
+      jq -r ".Sessions[] | select(.Reason == \"${reason}\") | .SessionId")
+
+    if [[ -n "${ssmSessionId}" ]]; then
+      echo "Terminating SSM Session ${ssmSessionId} on ${selectedBastionInstance} for ${reason}..."
+      aws ssm terminate-session ${awsArgs[@]} --session-id ${ssmSessionId}
+    fi
+  }
+  trap cleanup EXIT
+
+  sshuttle -e 'ssh -o CheckHostIP=no -o AddressFamily=inet -o GSSAPIAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=60 -o ProxyCommand='\''bash -c "aws ssm start-session --profile='${2:-central-network}' --region '${3:-eu-west-3}' --target %h --document-name SSM-StartSSHSession --reason '${reason}' --parameters '\''portNumber=%p'\''" '\''' --dns -r ec2-user@${selectedBastionInstance} ${targetCidr} 172.16.0.0/12
+}
+
+# Reconfigure 'default' aliases
+alias tunnel-staging="kubectl config use-context arn:aws:eks:eu-west-3:607565025904:cluster/general-staging && ssm-tunnel 10.35.0.0/16"
+alias tunnel-production="kubectl config use-context arn:aws:eks:eu-west-3:382906469911:cluster/general-production && ssm-tunnel 10.33.0.0/16"
+
+# SSH with SSM
+alias aws-list-ec2-instances='aws ec2 describe-instances --query '\''Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],InstanceId]'\'' --output text | awk '\''{ print $1 " = " $2 }'\'' | grep -v "karpenter"'
+alias aws-ssh='aws ssm start-session --target'
