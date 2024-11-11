@@ -41,8 +41,6 @@ homebrew_cask:
   - dbeaver-community
   - google-chrome
   - iterm2
-  - microsoft-outlook
-  - microsoft-remote-desktop
   - multipass
   - session-manager-plugin
   - slack
