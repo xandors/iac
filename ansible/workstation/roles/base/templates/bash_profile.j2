@@ -8,8 +8,6 @@ export CLICOLOR=1
 alias ll='ls -lhA'
 alias grep='grep --color'
 
-. "$HOME/.bash_aliases"
-
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 
 {% if ansible_system == "Darwin" and ansible_architecture == "arm64" %}
@@ -78,3 +76,7 @@ export HISTTIMEFORMAT="%F %T "
 
 ulimit -n 10240
 uname -n -r -m
+
+
+. "$HOME/.bash_aliases"
+. "$HOME/.bash_swile"
