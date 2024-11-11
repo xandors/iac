@@ -1,18 +1,10 @@
 Host multipass
-  HostName 192.168.64.2
+  HostName 192.168.64.1
   User ubuntu
   IdentityFile ~/.ssh/id_ed25519
   ForwardAgent yes
 
-Host *
-  HostName %h
-  User alex
-  StrictHostKeyChecking no
-  ForwardAgent yes
-  ServerAliveInterval 30
-  ServerAliveCountMax 120
-
-Host i-* mi-*
+host i-* mi-*
   IdentityFile ~/.ssh/id_rsa
-  ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command-id.sh %h %r %p ~/.ssh/id_rsa.pub
+  ProxyCommand ~/.ssh/aws-ssm-ec2-proxy-command.sh %h %r %p ~/.ssh/id_rsa.pub
   StrictHostKeyChecking no

@@ -1,1 +1,7 @@
 alias run-debug='kubectl run -it --rm=true debug --image=ubuntu --restart=Never -- sh'
+alias tf-lint='tflint --recursive --disable-rule=terraform_required_providers --disable-rule=terraform_required_version'
+alias tf-setup='rm -rf .terraform* ; tfenv use min-required ; terraform init ; terraform validate ; terraform plan -lock=false -detailed-exitcode'
+alias tf-clean='find . -name ".terraform*" -exec rm -rf {} \;'
+# alias git-clean='for i in $(ls -d -1 */) ; do echo ">>> $i" ; pushd $i ; git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D ; popd ; done'
+
+# tflint --recursive --disable-rule=terraform_required_providers --disable-rule=terraform_required_version

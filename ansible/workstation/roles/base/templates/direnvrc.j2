@@ -21,7 +21,7 @@
 #    if [ -f ".python-version" ]; then
 #       pyversion=$(head .python-version)
 #    else
-#       pyversion=3.8.13
+#       pyversion=3.13
 #    fi
 #    pvenv=$(basename $PWD)
 #
@@ -84,7 +84,7 @@ layout_virtualenv() {
     local pvenv=$2
     if has pyenv; then
         pyenv local ${pyversion}
-        if [ -n "$(which pyenv-virtualenv)" ]; then
+        if [ -d ${PYENV_ROOT}/plugins/pyenv-virtualenv ]; then
             eval "$(pyenv virtualenv-init -)"
             pyenv virtualenv --force --quiet ${pyversion} ${pvenv}
         else

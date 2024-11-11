@@ -38,3 +38,14 @@ alias tunnel-production="kubectl config use-context arn:aws:eks:eu-west-3:382906
 # SSH with SSM
 alias aws-list-ec2-instances='aws ec2 describe-instances --query '\''Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],InstanceId]'\'' --output text | awk '\''{ print $1 " = " $2 }'\'' | grep -v "karpenter"'
 alias aws-ssh='aws ssm start-session --target'
+
+# Brazil aliases
+alias br-ssm-tunnel='ssm-tunnel 172.31.0.0/16 central-network us-west-2'
+alias br-list-ec2='aws ec2 describe-instances --profile ${AWS_PROFILE:-brazil-engineer} --region ${AWS_REGION:-us-west-2} --query '\''Reservations[*].Instances[*].[Tags[?Key==`Name`].Value|[0],InstanceId,PrivateIpAddress] | sort_by(@, &@[0][0])'\'' --output table'
+alias br-aws-ssh='aws ssm start-session --profile ${AWS_PROFILE:-brazil-engineer} --region ${AWS_REGION:-us-west-2} --target'
+
+alias tunnel-br-development="kubectl config use-context arn:aws:eks:us-west-2:869935093395:cluster/brazil-development && ssm-tunnel 10.43.0.0/16 central-network us-west-2"
+alias tunnel-br-staging="kubectl config use-context arn:aws:eks:us-west-2:018759782867:cluster/brazil-staging && ssm-tunnel 10.42.0.0/16 central-network us-west-2"
+alias tunnel-br-production="kubectl config use-context arn:aws:eks:us-west-2:331318574317:cluster/brazil-production && ssm-tunnel 10.41.0.0/16 central-network us-west-2"
+
+export AWS_PROFILE=brazil-production

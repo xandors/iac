@@ -89,7 +89,7 @@
   community.general.git_config:
     name: user.name
     scope: global
-    value: 'Alex Souza'
+    value: 'Alexandre Souza'
 
 - name: Add email setting to ~/.gitconfig
   community.general.git_config:
