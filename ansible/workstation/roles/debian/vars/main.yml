@@ -15,6 +15,7 @@ packages:
   - byobu
   - ca-certificates
   - certbot
+  - code
   - containerd.io
   - curl
   - direnv
@@ -44,7 +45,7 @@ packages:
   - npm
   - openssh-server
   - p7zip-full
-  - packer
+  - pipenv
   - python3
   - python3-certbot-apache
   - python3-certbot-nginx
@@ -53,7 +54,6 @@ packages:
   - software-properties-common
   - telnet
   - tmux
-  - tmux-xpanes
   - traceroute
   - unzip
   - vault
@@ -74,8 +74,7 @@ flatpaks: []
   # - com.slack.Slack
   # - com.jetbrains.PyCharm-Community
 
-pip:
-  - pipenv
+pip: []
 
 git_repos:
   - name: .local/share/tfenv

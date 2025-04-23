@@ -1,17 +1,18 @@
 repositories:
   ppa:
     - "ppa:ansible/ansible"
-    - "ppa:greymd/tmux-xpanes"
   url:
-    - "deb https://download.docker.com/linux/ubuntu jammy stable"
-    - "deb https://apt.kubernetes.io/ kubernetes-xenial main"
+    - "deb https://download.docker.com/linux/ubuntu noble stable"
+    - "deb https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /"
     - "deb https://baltocdn.com/helm/stable/debian/ all main"
-    - "deb [arch=arm64] https://apt.releases.hashicorp.com jammy main"
+    - "deb [arch=arm64] https://apt.releases.hashicorp.com noble main"
+    - "deb [arch=arm64] https://packages.microsoft.com/repos/code stable main"
   key:
     - url: "https://download.docker.com/linux/ubuntu/gpg"
-    - url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    - url: "https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key"
     - url: "https://baltocdn.com/helm/signing.asc"
     - url: "https://apt.releases.hashicorp.com/gpg"
+    - url: "https://packages.microsoft.com/keys/microsoft.asc"
 
 remote_executables:
   - name: aws-iam-authenticator

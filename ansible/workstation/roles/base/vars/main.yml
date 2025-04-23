@@ -8,6 +8,7 @@ directories:
   - ~/.local/bin
   - ~/.kube
   - ~/.config/direnv
+  - ~/.vscode
   - ~/projects/xandors
 
 files:
@@ -29,6 +30,12 @@ scripts:
       file: config
     - dir: .config/direnv
       file: direnvrc
+    - dir: .vscode
+      file: settings.json
+    - dir: projects
+      file: .envrc
+    - dir: projects
+      file: .python-version
 
 bashrc_includes:
   - "[ -f ~/.bash_aliases ] && . ~/.bash_aliases"

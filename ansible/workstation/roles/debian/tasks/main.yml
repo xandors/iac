@@ -104,31 +104,31 @@
   with_items: "{{ remote_executables }}"
   when: not item.url.endswith("tar.gz") and not item.url.endswith("tgz") and not item.url.endswith("zip")
 
-- name: Install snaps
-  snap:
-    name: "{{ snaps.normal }}"
-    state: present
-  become: true
+# - name: Install snaps
+#   snap:
+#     name: "{{ snaps.normal }}"
+#     state: present
+#   become: true
 
-- name: Install snaps with option --classic
-  snap:
-    name: "{{ snaps.classic }}"
-    classic: true
-    state: present
-  become: true
+# - name: Install snaps with option --classic
+#   snap:
+#     name: "{{ snaps.classic }}"
+#     classic: true
+#     state: present
+#   become: true
 
-- name: Add the flathub flatpak remote to the system installation
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-  become: true
+# - name: Add the flathub flatpak remote to the system installation
+#   community.general.flatpak_remote:
+#     name: flathub
+#     state: present
+#     flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+#   become: true
 
-- name: Install flatpaks
-  community.general.flatpak:
-    name: "{{ item }}"
-    state: present
-  with_items: "{{ flatpaks }}"
+# - name: Install flatpaks
+#   community.general.flatpak:
+#     name: "{{ item }}"
+#     state: present
+#   with_items: "{{ flatpaks }}"
 
 - name: Run a command
   shell: "{{ item }}"
