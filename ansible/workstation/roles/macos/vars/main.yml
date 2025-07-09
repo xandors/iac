@@ -21,11 +21,14 @@ homebrew:
   - krew
   - kubectl
   - lens
+  - libpq
+  - mysql-client
   - nmap
   - nvm
   - openssl
   - pipenv
   - poetry
+  - pv
   - pyenv
   - pyenv-virtualenv
   - python3
@@ -39,57 +42,59 @@ homebrew:
   - wget
 
 homebrew_cask:
+  - cursor
   - dbeaver-community
+  - firefox
   - google-chrome
   - iterm2
   - multipass
+  - opera
   - session-manager-plugin
   - slack
   - stats
-  - visual-studio-code
   - xquartz
+  - zoom
 
 krew_plugins:
   - ctx
   - ns
   - get-all
+  - resource-capacity
 
 vscode:
   extensions:
-    - PKief.material-icon-theme
+    - amazonwebservices.aws-toolkit-vscode
+    - amazonwebservices.amazon-q-vscode
+    - dbcode.dbcode
+    - donjayamanne.git-extension-pack
+    - donjayamanne.python-extension-pack
+    - EditorConfig.EditorConfig
+    - github.vscode-github-actions
+    - github.vscode-pull-request-github
+    - hashicorp.hcl
+    - hashicorp.terraform
+    - mhutchie.git-graph
+    - Mineiros.terramate
+    - moshfeu.compare-folders
+    - ms-azuretools.vscode-docker
+    - ms-kubernetes-tools.vscode-kubernetes-tools
     - ms-vscode-remote.remote-containers
-    # - amazonwebservices.aws-toolkit-vscode
-    # - amazonwebservices.amazon-q-vscode
-    # - dbcode.dbcode
-    # - donjayamanne.git-extension-pack
-    # - donjayamanne.python-extension-pack
-    # - EditorConfig.EditorConfig
-    # - github.copilot
-    # - github.copilot-chat
-    # - github.remotehub
-    # - github.vscode-github-actions
-    # - github.vscode-pull-request-github
-    # - hashicorp.terraform
-    # - mhutchie.git-graph
-    # - Mineiros.terramate
-    # - moshfeu.compare-folders
-    # - ms-azuretools.vscode-docker
-    # - ms-kubernetes-tools.vscode-kubernetes-tools
-    # - qcz.text-power-tools
+    - PKief.material-icon-theme
+    - qcz.text-power-tools
   settings: |
     {
-      "editor.codeActionsOnSave": {},
       "editor.renderWhitespace": "all",
       "editor.rulers": [
-          80,
-          100,
-          120
+        80,
+        100,
+        120
       ],
       "editor.tabSize": 2,
       "files.autoSave": "afterDelay",
       "files.eol": "\n",
       "files.insertFinalNewline": true,
       "files.trimFinalNewlines": true,
+      "files.trimTrailingWhitespace": true,
       "git.autofetch": "all",
       "git.confirmSync": false,
       "terminal.integrated.defaultProfile.linux": "zsh",
@@ -98,16 +103,16 @@ vscode:
       "workbench.tree.indent": 15,
       "workbench.tree.renderIndentGuides": "always",
       "workbench.colorCustomizations": {
-          "tree.indentGuidesStroke": "#05ef3c"
+        "tree.indentGuidesStroke": "#05ef3c"
       },
       "[terraform]": {
-          "editor.defaultFormatter": "hashicorp.terraform",
-          "editor.formatOnSave": true,
-          "editor.formatOnSaveMode": "file"
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
       },
       "[terraform-vars]": {
-          "editor.defaultFormatter": "hashicorp.terraform",
-          "editor.formatOnSave": true,
-          "editor.formatOnSaveMode": "file"
+        "editor.defaultFormatter": "hashicorp.terraform",
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
       }
     }

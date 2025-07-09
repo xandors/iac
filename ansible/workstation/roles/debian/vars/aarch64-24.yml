@@ -1,6 +1,5 @@
 repositories:
-  ppa:
-    - "ppa:ansible/ansible"
+  ppa: []
   url:
     - "deb https://download.docker.com/linux/ubuntu noble stable"
     - "deb https://pkgs.k8s.io/core:/stable:/v1.32/deb/ /"

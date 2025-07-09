@@ -15,7 +15,7 @@ function ssm-tunnel() {
   selectedBastionInstance="$(echo "${bastionInstances}" | shuf | head -n 1)"
   echo "Selected bastion : '${selectedBastionInstance}'"
 	reason="${RANDOM}"
-  
+
   function cleanup() {
     ssmSessionId=$(aws ssm describe-sessions ${awsArgs[@]} --state Active --filters key=Target,value=${selectedBastionInstance} key=Status,value=Connected | \
 			grep -v 'AWS token' | \
@@ -30,6 +30,8 @@ function ssm-tunnel() {
 
   sshuttle -e 'ssh -o CheckHostIP=no -o AddressFamily=inet -o GSSAPIAuthentication=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ServerAliveInterval=60 -o ProxyCommand='\''bash -c "aws ssm start-session --profile='${2:-central-network}' --region '${3:-eu-west-3}' --target %h --document-name SSM-StartSSHSession --reason '${reason}' --parameters '\''portNumber=%p'\''" '\''' --dns -r ec2-user@${selectedBastionInstance} ${targetCidr} 172.16.0.0/12
 }
+
+alias aws-login="aws sso login --sso-session central"
 
 # Reconfigure 'default' aliases
 alias tunnel-staging="kubectl config use-context arn:aws:eks:eu-west-3:607565025904:cluster/general-staging && ssm-tunnel 10.0.0.0/8"
