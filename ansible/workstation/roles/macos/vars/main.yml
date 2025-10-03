@@ -34,7 +34,6 @@ homebrew:
   - python3
   - sshuttle
   - telnet
-  - terraformer
   - tfenv
   - tree
   - vim
@@ -48,10 +47,8 @@ homebrew_cask:
   - google-chrome
   - iterm2
   - multipass
-  - opera
   - session-manager-plugin
   - slack
-  - stats
   - xquartz
   - zoom
 
